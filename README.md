@@ -8,9 +8,9 @@ Three different dPCA fittings are carried out each with different experimental c
 
 ## dpca_run_all.py
 
-This is a python script that will run all mice and all sessions. It will save PDFs of the raw dPCA traces and traces of the distances between trajectories.
+This is a python script that will run all mice and all sessions. It will save PDFs of the raw dPCA trajectories and traces of the distances between trajectories.
 It will also save pickle files containing the raw distances. Each distance key in these pickle files is a list of numpy arrays of 
-shape (n_neurons, n_time_bins). Each list element corresponds to a session under the key 'mouse_date'. Also found in this pickle file is the
+shape (n_trials, n_time_bins). Each list element corresponds to a session under the key 'mouse_date'. Also found in this pickle file is the
 fraction of trials in which the mouse performs correctly and is engaged (under 'pcorrect' and 'pengaged'). Here, engaged is defined by when 
 mice are in state 3 (this is the state in which the psychometric curve is 'normal'). Further, the main and time PCs can be accessed in these 
 pickle files and the names will depend on the type of dPCA run.
@@ -46,7 +46,7 @@ pickle files created and allow you to concatenate all sessions. In this notebook
 
 General interpretation of these plots: if the laser on distance trace decreases in value relative to the corresponding laser off distance trace, then it is moving more towards the opposite trajectory. 
 
-Example: Below we see that the right trace with laser on distance is lower in value for the majority of the trial when compared to the right trace with laser off trace. Because these distance values are both taken relative to left trace with laser off, this suggests that the right trajectories with laser on are moving more towards the left trajectory with laser off.
+Example: Below we see that the right trace with laser on distance is lower in value for the majority of the trial when compared to the right trace with laser off. Because these distance values are both taken relative to left trace with laser off, this suggests that the right trajectories with laser on are moving more towards the left trajectory with laser off.
 
 ![image](https://user-images.githubusercontent.com/86695930/226212229-459aceae-0f3b-487d-aeb8-30a289e02ad4.png)
 
