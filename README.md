@@ -20,8 +20,7 @@ To use this python script to run a single .pickle file, navigate to its director
 python dpca_run_all.py [FILEPATH]
 ```
 Where FilePath is the path to the desired pickle file. Currently, this will save the output files to '/jukebox/witten/yousuf/rotation/'. To change this,
-edit the "path" variable in the python script. There must not be another folder in the save directory under the same name as pickle file or the script will
-fail to prevent overwriting.
+edit the "path" variable in the python script. There must not be another folder in the save directory under the same name as pickle file or the script will fail to prevent overwriting.
 
 ## dpca_loop.sh and dpca_batch.sh
 
@@ -41,3 +40,14 @@ squeue -u [YOUR USERNAME]
 ```
 
 ## group_analysis.ipynb
+
+Once you have run all files or at least all sessions for one file, you can move on to the group_analysis.ipynb notebook. This will load in the pickle
+pickle files created and allow you to concatenate all sessions. In this notebook, the two laser off distance trajectories' averages are compared. Whichever one has a lower average is mirrored across the x-axis to make the graphs easier to interpret. This works consistently as dPCA is looking for an axis along which it can separate the two conditions, so the average of one is less than the other. Then, for each session, all four distance trajectories are concatenated and zscored across all trials and time-bins. Finally, we concatenate the trajectories across all sesssions and plot the four trajectories.
+
+General interpretation of these plots: if the laser on distance trace decreases in value relative to the corresponding laser off distance trace, then it is moving more towards the opposite trajectory. 
+
+Example: Below we see that the right trace with laser on distance is lower in value for the majority of the trial when compared to the right trace with laser off trace. Because these distance values are both taken relative to left trace with laser off, this suggests that the right trajectories with laser on are moving more towards the left trajectory with laser off.
+
+![image](https://user-images.githubusercontent.com/86695930/226212229-459aceae-0f3b-487d-aeb8-30a289e02ad4.png)
+
+
